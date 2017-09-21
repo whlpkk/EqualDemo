@@ -1,9 +1,9 @@
 ## Objective-C中的hash方法
 
-#### 简介
+### 简介
 Objective-C中，经常会有需要重写`- (BOOL)isEuqal:(id)other`方法的情况。但是很少有人重写`- (NSUInteger)hash`方法。本文就详细解释一下`hash`方法的用处和不重写可能出现的问题。
 
-#### 哈希表
+### 哈希表
 Objective-C中，`NSDictionary`和`NSSet`是由哈希表实现的。
 
 在讨论哈希表之前，先规范几个接下来会用到的概念。哈希表的本质是一个数组，数组中每一个元素称为一个箱子(bin)，箱子中存放的是需要存储的对象，比如字典中就是键值对，集合中就是要放入集合的对象。
@@ -20,7 +20,7 @@ Objective-C中，`NSDictionary`和`NSSet`是由哈希表实现的。
 负载因子 = 总键值对数 / 箱子个数
 负载因子越大，意味着哈希表越满，越容易导致冲突，性能也就越低。因此，一般来说，当负载因子大于某个常数(可能是 1，或者 0.75 等)时，哈希表将自动扩容。
 
-#### 重写hash函数
+### 重写hash函数
 
 Objective-C中，NSObject的默认hash方法实现为：
 
@@ -114,7 +114,7 @@ Objective-C中，NSObject的默认hash方法实现为：
 
 在实现一个`hash`函数的时候，一个很常见的误解来源于认为 hash 得到的值 **必须** 是唯一可区分的。实际上，对于关键属性的散列值进行一个简单的XOR操作，就能够满足在 99% 的情况下的需求了。
 
-#### 何时需要重写hash
+### 何时需要重写hash
 
 Objective-C中，重写了`isEqual:`方法，一般来说不需要重写`hash`方法，但是如果这个对象需要被用作key在字典中存储时，就需要重写。
 
@@ -248,7 +248,7 @@ printf("\n---------------- Person2类 ----------------\n");
 因为默认的`hash`方法是直接返回的对象的地址，也就是说`p1`和`p2`的`hash`值是不可控的，所以上面的代码，`Person2`类的行为是未定义的。
 
 
-#### 结论
+### 结论
 
 综上所述，如果我们重写了`isEqual:`方法，大部分情况写可以不管`hash`方法，但是当我们需要把这个类的对象加入一张哈希表中的时候，我们一定要重新`hash`方法。
 
@@ -259,7 +259,7 @@ printf("\n---------------- Person2类 ----------------\n");
 * 反过来则不然，两个对象的散列值相等不一定意味着它们就是相等的 `([a hash] == [b hash] ¬⇒ [a isEqual:b])`
 
 
-#### 参考资料：  
+### 参考资料：  
 [Equality - NSHipster](http://nshipster.cn/equality/)  
 [Implementing Equality and Hashing](https://www.mikeash.com/pyblog/friday-qa-2010-06-18-implementing-equality-and-hashing.html)  
 [深入理解哈希表](http://ios.jobbole.com/87716/)  
