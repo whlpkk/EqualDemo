@@ -32,7 +32,7 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"%@ %@",self.firstName, self.lastName];
+    return [NSString stringWithFormat:@"%p %@ %@",self, self.firstName, self.lastName];
 }
 
 
@@ -51,25 +51,25 @@
 
 - (BOOL)isEqualToPeople:(People *)other {
     
+    // ||操作符的操作看起来好像是不必要的，但是如果我们需要处理两个属性都是 nil 的情形的话，它能够正确地返回 YES。比较像 NSUInteger 这样的标量是否相等时，则只需要使用 == 就可以了。
     BOOL firstNameIsEqual = (self.firstName == other.firstName || [self.firstName isEqual:other.firstName]);
     BOOL lastNameIsEqual = (self.lastName == other.lastName || [self.lastName isEqual:other.lastName]);
     BOOL ageIsEqual = (self.age == other.age);
     
-    // ||操作符的操作看起来好像是不必要的，但是如果我们需要处理两个属性都是 nil 的情形的话，它能够正确地返回 YES。比较像 NSUInteger 这样的标量是否相等时，则只需要使用 == 就可以了。
     return firstNameIsEqual && lastNameIsEqual && ageIsEqual;
 }
 
+/****************
 //NSObject默认的写法
-//- (NSUInteger)hash {
-//    return (NSUInteger)self;
-//}
-
+- (NSUInteger)hash {
+    return (NSUInteger)self;
+}
 
 //简单写法，一般取各个属性的hash值，进行异或运算即可，但是这有一个问题，因为异或运算具有对称性，即 A ^ B == B ^ A，所以如果按照下面的这种写法，会有这种问题。 一个叫做"George Frederick"的人和一个叫做"Frederick George"的人，具有相同的hash值，然后他们并不相等。
-//- (NSUInteger)hash {
-//    return [self.firstName hash] ^ [self.lastName hash] ^ (NSUInteger)self.age;
-//}
-
+- (NSUInteger)hash {
+    return [self.firstName hash] ^ [self.lastName hash] ^ (NSUInteger)self.age;
+}
+*****************/
 
 //使用按位旋转，然后在异或组合他们，如果有多个属性，只需要分别旋转不同位数，然后在异或即可
 #define NSUINT_BIT (CHAR_BIT * sizeof(NSUInteger))

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131D41C81F72689700FF8789 /* People2.m in Sources */ = {isa = PBXBuildFile; fileRef = 131D41C71F72689700FF8789 /* People2.m */; };
 		131D9DA31F14B5EB00F9ECB1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 131D9DA21F14B5EB00F9ECB1 /* main.m */; };
 		131D9DA61F14B5EB00F9ECB1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 131D9DA51F14B5EB00F9ECB1 /* AppDelegate.m */; };
 		131D9DA91F14B5EB00F9ECB1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 131D9DA81F14B5EB00F9ECB1 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		131D41C61F72689700FF8789 /* People2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = People2.h; sourceTree = "<group>"; };
+		131D41C71F72689700FF8789 /* People2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = People2.m; sourceTree = "<group>"; };
 		131D9D9E1F14B5EB00F9ECB1 /* NSAD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSAD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		131D9DA21F14B5EB00F9ECB1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		131D9DA41F14B5EB00F9ECB1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -67,6 +70,8 @@
 				131D9DA81F14B5EB00F9ECB1 /* ViewController.m */,
 				131D9DB81F14B65800F9ECB1 /* People.h */,
 				131D9DB91F14B65800F9ECB1 /* People.m */,
+				131D41C61F72689700FF8789 /* People2.h */,
+				131D41C71F72689700FF8789 /* People2.m */,
 				131D9DAA1F14B5EB00F9ECB1 /* Main.storyboard */,
 				131D9DAD1F14B5EB00F9ECB1 /* Assets.xcassets */,
 				131D9DAF1F14B5EB00F9ECB1 /* LaunchScreen.storyboard */,
@@ -155,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				131D41C81F72689700FF8789 /* People2.m in Sources */,
 				131D9DBA1F14B65800F9ECB1 /* People.m in Sources */,
 				131D9DA91F14B5EB00F9ECB1 /* ViewController.m in Sources */,
 				131D9DA61F14B5EB00F9ECB1 /* AppDelegate.m in Sources */,
@@ -317,6 +323,7 @@
 				131D9DB71F14B5EB00F9ECB1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
